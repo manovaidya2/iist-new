@@ -23,7 +23,7 @@ import School from "./pages/School";
 import SchoolDetails from "./pages/SchoolDetails";
 import AdmissionForm from "./school/AdmissionForm";
 import ExamFormsSection from "./school/ExamFormsSection";
-import Placementcell from "./pages/placementcell";
+import Placementcell from "./pages/Placementcell";
 import Result from "./pages/Result";
 import Franchise from "./pages/Franchise";
 import StudentLoginMain from "./Student Zone/StudentLoginMain";
