@@ -1,8 +1,8 @@
 import React from "react";
-import FranchiseHero from "../franchise/FranchiseHero";
-import WhyPartnerSection from "../franchise/WhyPartnerSection";
-import FranchiseeRequirements from "../franchise/FranchiseeRequirements";
-import FranchiseeForm from "../franchise/FranchiseeForm";
+import FranchiseHero from "../Franchise/FranchiseHero";
+import WhyPartnerSection from "../Franchise/WhyPartnerSection";
+import FranchiseeRequirements from "../Franchise/FranchiseeRequirements";
+import FranchiseeForm from "../Franchise/FranchiseeForm";
 
 
 
