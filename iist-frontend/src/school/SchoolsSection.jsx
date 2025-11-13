@@ -39,7 +39,7 @@ export default function SchoolsSection() {
                 {/* 🖼️ Image instead of icon */}
                 <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                   <img
-                    src={`https://api.iisd.io//uploads/images/${program.image}`}
+                    src={`https://api.iisd.io/uploads/images/${program.image}`}
                     alt={program.title}
                     className="w-full h-full object-cover"
                   />
