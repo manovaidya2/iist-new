@@ -9,7 +9,7 @@ export default function StudentResult({ studentData }) {
   // ✅ PDF Download Function (unchanged)
   const handleDownloadPDF = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/students/download/${id}`, {
+      const response = await fetch(`http://localhost:5008/api/students/download/${id}`, {
         method: "GET",
       });
 
