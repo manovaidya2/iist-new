@@ -71,7 +71,7 @@ export default function StudentProgramList() {
           {selected.image && (
   <div className="flex justify-center mb-6">
     <img
-      src={`http://localhost:5000/uploads/images/${selected.image}`}
+      src={`https://api.iisd.io/uploads/images/${selected.image}`}
       alt="Program"
       className="w-48 h-32 object-cover rounded-xl"
     />
@@ -122,7 +122,7 @@ export default function StudentProgramList() {
             {selected.brochures.map((b, i) => (
               <li key={i}>
                 <a
-                  href={`http://localhost:5000/uploads/brochures/${b}`}
+                  href={`https://api.iisd.io/uploads/brochures/${b}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#1a4e92] underline"

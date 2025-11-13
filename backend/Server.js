@@ -22,6 +22,7 @@ app.use(
       "https:www.iisd.io",
       "https://iisd.io",
       "https://admin.iisd.io",
+       "https://api.iisd.io/",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,

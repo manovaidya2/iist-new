@@ -282,7 +282,7 @@ export default function Header() {
           <a href="/results">Results</a>
           <a href="/franchise">Franchisee</a>
           <a href="/student-login">Student Login</a>
-          <a href="#">Centre Login</a>
+          <a href="/center-login">Centre Login</a>
 
           <button className="flex items-center gap-1.5 border border-gray-300 rounded-full px-3 py-1 text-sm">
             <Globe size={15} /> EN
@@ -323,7 +323,7 @@ export default function Header() {
           <a href="/results">Results</a>
           <a href="/franchise">Franchisee</a>
           <a href="/student-login">Student Login</a>
-          <a href="#">Centre Login</a>
+          <a href="/center-login">Centre Login</a>
 
           <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 w-max">
             <Globe size={16} /> EN

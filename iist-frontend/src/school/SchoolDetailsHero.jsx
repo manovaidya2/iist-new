@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaCut, FaPalette, FaShoppingBag, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../api/axiosInstance";
 
 export default function SchoolDetailsHero() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ export default function SchoolDetailsHero() {
   useEffect(() => {
     const fetchProgram = async () => {
       try {
-        const res = await axios.get(`http://localhost:5008/api/student-programs/${id}`);
+        const res = await axios.get(`/student-programs/${id}`);
         setProgram(res.data);
       } catch (error) {
         console.error("Error fetching program:", error);
@@ -26,7 +26,8 @@ export default function SchoolDetailsHero() {
   // Download brochure handler
   const handleDownload = async (file) => {
     try {
-      const baseURL = "http://localhost:5008"; // Adjust to your backend URL
+      // const baseURL = "http://localhost:5008"; 
+       const baseURL = "https://api.iisd.io/";// Adjust to your backend URL
       const fileURL = `${baseURL}/uploads/brochures/${file}`;
       const response = await axios.get(fileURL, { responseType: "blob" });
       const blob = new Blob([response.data], { type: "application/pdf" });

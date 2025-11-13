@@ -34,16 +34,18 @@ export default function AboutSection() {
           </p>
 
           {/* Stats */}
-          <div className="flex gap-6 mt-8">
-            <div className="bg-[#e9f1ff] rounded-xl px-8 py-5 flex items-center justify-center gap-2">
-              <h3 className="text-[#004aad] text-3xl font-bold">50+</h3>
-              <p className="text-gray-600 font-medium">Countries</p>
-            </div>
-            <div className="bg-[#e9f1ff] rounded-xl px-8 py-5 flex items-center justify-center gap-2">
-              <h3 className="text-[#004aad] text-3xl font-bold">100+</h3>
-              <p className="text-gray-600 font-medium">Programs</p>
-            </div>
-          </div>
+{/* Stats */}
+<div className="flex flex-wrap gap-4 mt-8">
+  <div className="flex-1 min-w-[120px] bg-[#e9f1ff] rounded-xl px-4 sm:px-6 py-5 flex flex-col items-center justify-center gap-2">
+    <h3 className="text-[#004aad] text-3xl font-bold">50+</h3>
+    <p className="text-gray-600 font-medium text-center">Countries</p>
+  </div>
+  <div className="flex-1 min-w-[120px] bg-[#e9f1ff] rounded-xl px-4 sm:px-6 py-5 flex flex-col items-center justify-center gap-2">
+    <h3 className="text-[#004aad] text-3xl font-bold">100+</h3>
+    <p className="text-gray-600 font-medium text-center">Programs</p>
+  </div>
+</div>
+
         </div>
 
         {/* Right Section - Cards */}

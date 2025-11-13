@@ -22,7 +22,7 @@ export default function DownloadsSection() {
   // ✅ Corrected download handler
   const handleDownload = async (file) => {
     try {
-      const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+      const baseURL = import.meta.env.VITE_API_BASE_URL || "https://api.iisd.io/";
       const fileURL = `${baseURL}/uploads/brochures/${file}`; // ✅ Corrected path
 
       console.log("📥 Downloading from:", fileURL);

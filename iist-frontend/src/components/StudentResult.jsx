@@ -9,7 +9,7 @@ export default function StudentResult({ studentData }) {
   // ✅ PDF Download Function (unchanged)
   const handleDownloadPDF = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5008/api/students/download/${id}`, {
+      const response = await fetch(`https://api.iisd.io/students/download/${id}`, {
         method: "GET",
       });
 
@@ -152,7 +152,7 @@ export default function StudentResult({ studentData }) {
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mt-6">
+      {/* <div className="flex flex-wrap justify-center gap-4 mt-6">
         <button
           onClick={() => handleDownloadPDF(studentData._id)}
           className="flex items-center gap-2 px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 shadow-md transition-all text-sm sm:text-base"
@@ -165,7 +165,7 @@ export default function StudentResult({ studentData }) {
         >
           <FaCertificate className="text-white" /> Download Certificate
         </button>
-      </div>
+      </div> */}
 
       {/* Result Declaration Schedule */}
       <div className="mt-10 w-full max-w-4xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 sm:p-8 shadow-sm text-left">

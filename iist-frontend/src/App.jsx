@@ -27,6 +27,7 @@ import Placementcell from "./pages/Placementcell";
 import Result from "./pages/Result";
 import Franchise from "./pages/Franchise";
 import StudentLoginMain from "./Student Zone/StudentLoginMain";
+import AcademicCentrePortal from "./Centre/AcademicCentrePortal";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route path="/result" element={<Result />} />
         <Route path="/franchise" element={<Franchise />} /> {/* Fallback route */}
         <Route path="/student-login" element={<StudentLoginMain />} /> {/* Fallback route */}
+        <Route path="/center-login" element={<AcademicCentrePortal />} />
         
          
 
