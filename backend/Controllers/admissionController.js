@@ -1,5 +1,6 @@
 import Admission from "../Models/AdmissionModel.js";
 
+
 // ================================
 //  POST Admission
 // ================================

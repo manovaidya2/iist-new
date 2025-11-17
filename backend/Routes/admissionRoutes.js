@@ -1,6 +1,6 @@
     import express from "express";
     import { upload } from "../Middleware/upload.js";
-    import Admission from "../Models/admissionModel.js";
+    import Admission from "../Models/AdmissionModel.js";
 
     const router = express.Router();
 
