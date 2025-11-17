@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
-import logo from "../images/IISD Logo-1.png";
+import logo from "../images/Logo white.png";
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
             <img
               src={logo}
               alt="IISD Logo"
-              className="w-50 h-12 mr-3"
+              className="w-70 h-12 mr-3"
             />
            
           </div>

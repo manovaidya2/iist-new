@@ -380,77 +380,80 @@ export default function ExaminationForm() {
 
       {/* Section D - Subjects */}
       <h2 className="text-xl font-semibold mt-6 mb-2">
-        D. Subjects Applied for Examination
-      </h2>
+  D. Subjects Applied for Examination
+</h2>
 
-      <table className="w-full border mb-2">
-        <thead>
-          <tr className="bg-gray-200 border">
-            <th className="p-2 border">Sr.</th>
-            <th className="p-2 border">Subject Code</th>
-            <th className="p-2 border">Subject Name</th>
-            <th className="p-2 border">Theory/Practical</th>
-            <th className="p-2 border">Regular/Reappear</th>
-            <th className="p-2 border">Action</th>
-          </tr>
-        </thead>
+<div className="overflow-x-auto md:overflow-visible">
+  <table className="w-full border mb-2 min-w-[700px]">
+    <thead>
+      <tr className="bg-gray-200 border">
+        <th className="p-2 border">Sr.</th>
+        <th className="p-2 border">Subject Code</th>
+        <th className="p-2 border">Subject Name</th>
+        <th className="p-2 border">Theory/Practical</th>
+        <th className="p-2 border">Regular/Reappear</th>
+        <th className="p-2 border">Action</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          {subjects.map((row, i) => (
-            <tr key={i} className="border">
-              <td className="p-2 border text-center">{i + 1}</td>
+    <tbody>
+      {subjects.map((row, i) => (
+        <tr key={i} className="border">
+          <td className="p-2 border text-center">{i + 1}</td>
 
-              <td className="p-2 border">
-                <input
-                  className="w-full border p-1"
-                  value={row.code}
-                  onChange={(e) => updateRow(i, "code", e.target.value)}
-                />
-              </td>
+          <td className="p-2 border">
+            <input
+              className="w-full border p-1"
+              value={row.code}
+              onChange={(e) => updateRow(i, "code", e.target.value)}
+            />
+          </td>
 
-              <td className="p-2 border">
-                <input
-                  className="w-full border p-1"
-                  value={row.name}
-                  onChange={(e) => updateRow(i, "name", e.target.value)}
-                />
-              </td>
+          <td className="p-2 border">
+            <input
+              className="w-full border p-1"
+              value={row.name}
+              onChange={(e) => updateRow(i, "name", e.target.value)}
+            />
+          </td>
 
-              <td className="p-2 border">
-                <input
-                  className="w-full border p-1"
-                  value={row.type}
-                  onChange={(e) => updateRow(i, "type", e.target.value)}
-                />
-              </td>
+          <td className="p-2 border">
+            <input
+              className="w-full border p-1"
+              value={row.type}
+              onChange={(e) => updateRow(i, "type", e.target.value)}
+            />
+          </td>
 
-              <td className="p-2 border">
-                <input
-                  className="w-full border p-1"
-                  value={row.mode}
-                  onChange={(e) => updateRow(i, "mode", e.target.value)}
-                />
-              </td>
+          <td className="p-2 border">
+            <input
+              className="w-full border p-1"
+              value={row.mode}
+              onChange={(e) => updateRow(i, "mode", e.target.value)}
+            />
+          </td>
 
-              <td className="p-2 border text-center">
-                {i === subjects.length - 1 ? (
-                  <button type="button" onClick={addRow} className="text-green-600">
-                    <Plus />
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => removeRow(i)}
-                    className="text-red-600"
-                  >
-                    <Minus />
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          <td className="p-2 border text-center">
+            {i === subjects.length - 1 ? (
+              <button type="button" onClick={addRow} className="text-green-600">
+                <Plus />
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => removeRow(i)}
+                className="text-red-600"
+              >
+                <Minus />
+              </button>
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
 
       <button
         type="button"
@@ -523,7 +526,7 @@ export default function ExaminationForm() {
       {/* SUBMIT BUTTON */}
       <button
         type="submit"
-        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg text-lg mt-4"
+        className="w-full bg-[#1a4e92] hover:bg-[#1a4e92] text-white font-semibold py-3 rounded-lg text-lg mt-4"
       >
         Submit Form
       </button>

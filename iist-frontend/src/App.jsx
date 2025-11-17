@@ -33,6 +33,7 @@ import ExaminationForm from "./school/ExaminationForm";
 
 function App() {
   return (
+    
     <Router>
       <Header />
       <Routes>
