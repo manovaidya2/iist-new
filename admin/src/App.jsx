@@ -12,6 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 import ContactList from "./pages/ContactList";
 import SchoolProgram from "./pages/SchoolProgram";
 import StudentProgramList from "./pages/StudentProgramList";
+import AdminForms from "./pages/OnDemandForms";
+import AdminAdmissionList from "./pages/AdminAdmissionList";
+import ExaminationData from "./pages/ExaminationData";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path="/contact-list" element={<Layout><ContactList /></Layout>} />
            <Route path="/school-program" element={<Layout><SchoolProgram /></Layout>} />
             <Route path="/school-program-list" element={<Layout><StudentProgramList /></Layout>} />
+            <Route path="/admin-forms" element={<Layout><AdminForms /></Layout>} /> 
+            <Route path="/admisson-form" element={<Layout><AdminAdmissionList /></Layout>} /> 
+            <Route path="/examinationformdata" element={<Layout><ExaminationData /></Layout>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

@@ -18,19 +18,22 @@ const Sidebar = () => {
       links: [
         { name: "Dashboard", icon: <FaTachometerAlt />, path: "#" },
         { name: "Result", icon: <FaBook />, path: "/results" },
-        { name: "Courses", icon: <FaFileAlt />, path: "/courses" },
-        { name: "School Program List", icon: <FaBook />, path: "/school-program-list" },
+        // { name: "Courses", icon: <FaFileAlt />, path: "/courses" },
+        // { name: "School Program List", icon: <FaBook />, path: "/school-program-list" },
+       
       ],
     },
     {
       title: "Admin",
       links: [
         { name: "Dashboard", icon: <FaTachometerAlt />, path: "#" },
-        { name: "Skill Program", icon: <FaUserGraduate />, path: "/admin_skill" },
-        { name: "Gallery", icon: <FaChalkboardTeacher />, path: "/admin-gallery" },
-        { name: "Contact", icon: <FaFileAlt />, path: "/contact-list" },
-        { name: "School Proram", icon: <FaCalendarAlt />, path: "/school-program" },
-        { name: "Users", icon: <FaUsers />, path: "#" },
+        { name: "Ondemand Form list", icon: <FaUserGraduate />, path: "/admin-forms" },
+        // { name: "Gallery", icon: <FaChalkboardTeacher />, path: "/admin-gallery" },
+        // { name: "Contact", icon: <FaFileAlt />, path: "/contact-list" },
+        { name: "School Program", icon: <FaCalendarAlt />, path: "/school-program" },
+        // { name: "Users", icon: <FaUsers />, path: "#" },
+        { name: "Admission form data", icon: <FaBook />, path: "/admisson-form" },
+        { name: "Examination form data", icon: <FaBook />, path: "/examinationformdata" },
       ],
     },
   ];

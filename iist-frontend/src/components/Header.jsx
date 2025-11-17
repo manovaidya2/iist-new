@@ -251,6 +251,7 @@
 // export default Header;
 import React, { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
+import logo from "../images/IISD Logo-1.png";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -261,16 +262,11 @@ export default function Header() {
         {/* Logo + Name */}
         <div className="flex items-center gap-3">
           <img
-            src="/logo.png"
+            src={logo}
             alt="IISD Logo"
-            className="w-10 h-10 object-contain"
+            className="w-50 h-15 object-contain"
           />
-          <div>
-            <h1 className="text-[#004a9f] text-xl font-bold leading-none">IISD</h1>
-            <p className="text-gray-500 text-sm leading-none">
-              International Institute
-            </p>
-          </div>
+         
         </div>
 
         {/* Desktop Menu */}

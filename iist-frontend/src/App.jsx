@@ -22,12 +22,13 @@ import About from "./pages/About";
 import School from "./pages/School";
 import SchoolDetails from "./pages/SchoolDetails";
 import AdmissionForm from "./school/AdmissionForm";
-import ExamFormsSection from "./school/ExamFormsSection";
+// import ExamFormsSection from "./school/ExamFormsSection";
 import Placementcell from "./pages/Placementcell";
 import Result from "./pages/Result";
 import Franchise from "./pages/Franchise";
 import StudentLoginMain from "./Student Zone/StudentLoginMain";
 import AcademicCentrePortal from "./Centre/AcademicCentrePortal";
+import ExaminationForm from "./school/ExaminationForm";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
        <Route path="/school-details/:id" element={<SchoolDetails />} />
 {/* Fallback route */}
         <Route path="/admission-form" element={<AdmissionForm />} /> {/* Fallback route */}
-        <Route path="/exam-form" element={<ExamFormsSection />} /> {/* Fallback route */}
+        <Route path="/exam-form" element={<ExaminationForm/>} /> {/* Fallback route */}
         <Route path="/placement-cell" element={<Placementcell />} /> {/* Fallback route */}
         <Route path="/result" element={<Result />} />
         <Route path="/franchise" element={<Franchise />} /> {/* Fallback route */}
