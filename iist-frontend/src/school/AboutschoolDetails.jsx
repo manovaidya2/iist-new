@@ -40,8 +40,12 @@ export default function AboutschoolDetails() {
           </div>
 
           {/* 🔹 Stylish Static Illustration Card */}
-          <div className="relative flex justify-center">
-            <div className="relative w-[400px] h-[280px] md:w-[500px] md:h-[350px] rounded-2xl overflow-hidden shadow-2xl bg-[#1a4e92] flex items-center justify-center">
+         <div className="relative flex justify-center w-full">
+  <div className="relative w-full max-w-[350px] sm:max-w-[400px] md:max-w-[500px] 
+      h-[220px] sm:h-[260px] md:h-[350px]
+      rounded-2xl overflow-hidden shadow-2xl bg-[#1a4e92] 
+      flex items-center justify-center mx-auto">
+
               {/* Abstract shape background */}
               <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
 
@@ -57,7 +61,10 @@ export default function AboutschoolDetails() {
             </div>
 
             {/* Title Overlay */}
-            <div className="absolute -bottom-6 -right-6 bg-[#1a4e92] text-white px-6 py-3 rounded-lg shadow-lg font-semibold text-sm md:text-base">
+           <div className="absolute -bottom-4 right-2 md:-bottom-6 md:-right-6 
+    bg-[#1a4e92] text-white px-4 py-2 md:px-6 md:py-3 
+    rounded-lg shadow-lg font-semibold text-xs sm:text-sm md:text-base">
+
               {program.title}
             </div>
           </div>

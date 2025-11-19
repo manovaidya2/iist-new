@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../public/IISD.855d404de3a326ca6293.webp"; // Replace with your logo path
+import logo from "../../public/Logo white.png"; // Replace with your logo path
 import {
   FaTachometerAlt,
   FaBook,
@@ -45,9 +45,9 @@ const Sidebar = () => {
   <img
     src={logo} // Replace with your logo path
     alt="IIST Logo"
-    className="w-10 h-10 object-contain" // Adjust size as needed
+    className="w-60 h-15 object-contain" // Adjust size as needed
   />
-  <span className="ml-3 text-xl font-bold">IIST</span>
+
 </div>
 
 

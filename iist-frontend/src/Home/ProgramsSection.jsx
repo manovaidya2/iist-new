@@ -46,7 +46,7 @@ export default function ProgramsSection() {
               <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-200 mb-4 overflow-hidden">
                 {program.image ? (
                   <img
-                    src={`http://localhost:5008/uploads/images/${program.image}`}
+                    src={`https://api.iisd.io/uploads/images/${program.image}`}
                     alt={program.title}
                     className="w-full h-full object-cover"
                   />
