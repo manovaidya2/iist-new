@@ -27,7 +27,7 @@ export default function SchoolDetailsHero() {
   const handleDownload = async (file) => {
     try {
       // const baseURL = "http://localhost:5008"; 
-       const baseURL = "https://api.iisd.io/";// Adjust to your backend URL
+       const baseURL = "https://api.iisd.io";// Adjust to your backend URL
       const fileURL = `${baseURL}/uploads/brochures/${file}`;
       const response = await axios.get(fileURL, { responseType: "blob" });
       const blob = new Blob([response.data], { type: "application/pdf" });
