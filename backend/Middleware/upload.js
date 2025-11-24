@@ -1,7 +1,6 @@
 import multer from "multer";
 import path from "path";
 
-// Storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -11,7 +10,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// File Filter
 const fileFilter = (req, file, cb) => {
   const ext = path.extname(file.originalname).toLowerCase();
   const allowed = [".jpg", ".jpeg", ".png", ".webp", ".pdf"];

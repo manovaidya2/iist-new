@@ -87,6 +87,20 @@ export default function DownloadsSection() {
             <FaFileAlt className="text-2xl" />
             <span className="font-semibold text-lg">Exam Form</span>
           </a>
+           <a
+            href="/self-declaration-form"
+            className="bg-[#123764] text-white py-6 px-5 rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] transition-transform flex flex-col items-center justify-center gap-3"
+          >
+            <FaFileAlt className="text-2xl" />
+            <span className="font-semibold text-lg">Self Declaration</span>
+          </a>
+           <a
+            href="/certificate-reissue-form"
+            className="bg-[#123764] text-white py-6 px-5 rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] transition-transform flex flex-col items-center justify-center gap-3"
+          >
+            <FaFileAlt className="text-2xl" />
+            <span className="font-semibold text-lg">Certificate Reissue Form </span>
+          </a>
         </div>
       </div>
     </section>

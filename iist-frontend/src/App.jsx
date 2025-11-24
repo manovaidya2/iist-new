@@ -29,6 +29,9 @@ import Franchise from "./pages/Franchise";
 import StudentLoginMain from "./Student Zone/StudentLoginMain";
 import AcademicCentrePortal from "./Centre/AcademicCentrePortal";
 import ExaminationForm from "./school/ExaminationForm";
+import SelfDeclarationForm from "./school/SelfDeclarationForm";
+import IISDReissueForm from "./school/IISDReissueForm";
+import PlacementApplicationForm from "./placement/PlacementApplicationForm";
 
 
 function App() {
@@ -51,6 +54,10 @@ function App() {
         <Route path="/franchise" element={<Franchise />} /> {/* Fallback route */}
         <Route path="/student-login" element={<StudentLoginMain />} /> {/* Fallback route */}
         <Route path="/center-login" element={<AcademicCentrePortal />} />
+        <Route path="/self-declaration-form" element={<SelfDeclarationForm />} />
+        <Route path="/certificate-reissue-form" element={<IISDReissueForm />} />
+        <Route path="/placement" element={<PlacementApplicationForm />} />
+
         
          
 

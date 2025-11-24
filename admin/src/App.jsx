@@ -15,6 +15,8 @@ import StudentProgramList from "./pages/StudentProgramList";
 import AdminForms from "./pages/OnDemandForms";
 import AdminAdmissionList from "./pages/AdminAdmissionList";
 import ExaminationData from "./pages/ExaminationData";
+import AdminDeclarationList from "./pages/AdminDeclarationList";
+import ReissueFormTable from "./pages/ReissueFormTable";
 
 function App() {
   return (
@@ -33,6 +35,9 @@ function App() {
             <Route path="/admin-forms" element={<Layout><AdminForms /></Layout>} /> 
             <Route path="/admisson-form" element={<Layout><AdminAdmissionList /></Layout>} /> 
             <Route path="/examinationformdata" element={<Layout><ExaminationData /></Layout>} />
+             {/* <Route path="/edit-student-program/:id" element={<EditStudentProgram />} /> */}
+             <Route path="/declaration" element={<Layout><AdminDeclarationList /></Layout>}/>
+             <Route path="/certificate-reissue" element={<Layout><ReissueFormTable /></Layout>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

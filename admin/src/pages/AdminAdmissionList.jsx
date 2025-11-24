@@ -90,7 +90,7 @@ export default function AdminAdmissionList() {
                 <td className="p-3 border text-xs">
                   {item.uploadSign && (
                     <a
-                      href={`http://localhost:5008/uploads/${item.uploadSign}`}
+                      href={`https://api.iisd.io/uploads/${item.uploadSign}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-red-600 underline block"

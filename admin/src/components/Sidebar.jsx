@@ -34,6 +34,8 @@ const Sidebar = () => {
         // { name: "Users", icon: <FaUsers />, path: "#" },
         { name: "Admission form data", icon: <FaBook />, path: "/admisson-form" },
         { name: "Examination form data", icon: <FaBook />, path: "/examinationformdata" },
+        { name: "Declaration form data", icon: <FaBook />, path: "/declaration" },
+        { name: "Certificate Reissue form data", icon: <FaBook />, path: "/certificate-reissue" },
       ],
     },
   ];
