@@ -32,12 +32,18 @@ import ExaminationForm from "./school/ExaminationForm";
 import SelfDeclarationForm from "./school/SelfDeclarationForm";
 import IISDReissueForm from "./school/IISDReissueForm";
 import PlacementApplicationForm from "./placement/PlacementApplicationForm";
+import IISDInternshipForm from "./school/IISDInternshipForm";
+import MediumofInstruction from "./school/MediumofInstruction";
+import FormDownloadComponent from "./school/FormDownloadComponent";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ IMPORT THIS
+
 
 
 function App() {
   return (
     
     <Router>
+      <ScrollToTop /> {/* ✅ ADD THIS */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} /> {/* Home route */}
@@ -56,7 +62,10 @@ function App() {
         <Route path="/center-login" element={<AcademicCentrePortal />} />
         <Route path="/self-declaration-form" element={<SelfDeclarationForm />} />
         <Route path="/certificate-reissue-form" element={<IISDReissueForm />} />
-        <Route path="/placement" element={<PlacementApplicationForm />} />
+        <Route path="/placement-application-form" element={<PlacementApplicationForm />} />
+        <Route path="/intership-form" element={<IISDInternshipForm />} />
+        <Route path="/medium-of-instruction-form" element={<MediumofInstruction />} />
+        <Route path="/Download-form" element={<FormDownloadComponent />} />
 
         
          

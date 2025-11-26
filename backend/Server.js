@@ -13,6 +13,10 @@
     import examinationRoutes from "./Routes/examinationRoutes.js";
     import declarationRoutes from "./Routes/declarationRoutes.js";
     import reissueRoutes from "./Routes/reissueRoutes.js";
+    import placementRoutes from "./Routes/placementRoutes.js";
+    import internshipRoutes from "./Routes/internshipRoutes.js";
+    import mediumRoutes from "./Routes/mediumInstructionroutes.js";
+    import formUploadRoutes from "./Routes/formUploadRoutes.js";
 
 
 
@@ -64,6 +68,11 @@
     app.use("/api", examinationRoutes);
     app.use("/api", declarationRoutes);
     app.use("/api", reissueRoutes);
+    app.use("/api/placement", placementRoutes);
+    app.use("/api/internship", internshipRoutes);
+    app.use("/api/medium", mediumRoutes);
+    app.use("/api/forms", formUploadRoutes);
+
 
 
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaUserPlus, FaBriefcase } from "react-icons/fa";
 
 export default function CareerJourneySection() {
@@ -23,10 +24,12 @@ export default function CareerJourneySection() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           {/* Register Button */}
-          <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#1a4e92] font-semibold text-lg px-8 py-4 rounded-full shadow-xl hover:from-yellow-300 hover:to-yellow-400 hover:scale-105 transition-transform duration-300">
-            <FaUserPlus className="text-[#1a4e92]" />
-            Register for Placement
-          </button>
+         <Link to="/placement-application-form">
+  <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#1a4e92] font-semibold text-lg px-8 py-4 rounded-full shadow-xl hover:from-yellow-300 hover:to-yellow-400 hover:scale-105 transition-transform duration-300">
+    <FaUserPlus className="text-[#1a4e92]" />
+    Register for Placement
+  </button>
+</Link>
 
           {/* View Openings Button */}
           <button className="flex items-center justify-center gap-3 border-2 bg-blue-900 border-black-900 text-white-900 font-semibold text-lg px-8 py-4 rounded-full hover:bg-blue-100 hover:text-[#1a4e92] hover:scale-105 transition-transform duration-300">

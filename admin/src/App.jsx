@@ -17,6 +17,10 @@ import AdminAdmissionList from "./pages/AdminAdmissionList";
 import ExaminationData from "./pages/ExaminationData";
 import AdminDeclarationList from "./pages/AdminDeclarationList";
 import ReissueFormTable from "./pages/ReissueFormTable";
+import PlacementFormsAdmin from "./pages/PlacementFormsAdmin";
+import AdminInternship from "./pages/AdminInternship";
+import MediumAdmin from "./pages/MediumAdmin";
+import FormUploadPage from "./pages/FormUploadPage";
 
 function App() {
   return (
@@ -38,6 +42,10 @@ function App() {
              {/* <Route path="/edit-student-program/:id" element={<EditStudentProgram />} /> */}
              <Route path="/declaration" element={<Layout><AdminDeclarationList /></Layout>}/>
              <Route path="/certificate-reissue" element={<Layout><ReissueFormTable /></Layout>}/>
+             <Route path="/placement-form" element={<Layout><PlacementFormsAdmin /></Layout>}/>
+             <Route path="/internship-form-data" element={<Layout><AdminInternship /></Layout>}/>
+             <Route path="/medium-admin" element={<Layout><MediumAdmin /></Layout>} />
+             <Route path="/form-upload" element={<Layout><FormUploadPage /></Layout>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
