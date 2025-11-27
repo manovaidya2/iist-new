@@ -26,8 +26,8 @@ export default function SchoolDetailsHero() {
   // Download brochure handler
   const handleDownload = async (file) => {
     try {
-      // const baseURL = "http://localhost:5008"; 
-       const baseURL = "https://api.iisd.io";// Adjust to your backend URL
+      const baseURL = "http://localhost:5008"; 
+      //  const baseURL = "https://api.iisd.io";// Adjust to your backend URL
       const fileURL = `${baseURL}/uploads/brochures/${file}`;
       const response = await axios.get(fileURL, { responseType: "blob" });
       const blob = new Blob([response.data], { type: "application/pdf" });
@@ -68,10 +68,7 @@ export default function SchoolDetailsHero() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-3 bg-white/10 px-3 py-1 rounded-full text-sm font-medium w-max">
-              <FaCut className="text-white/90" />
-              <span>{program.title}</span>
-            </div>
+           
 
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
               {program.title}
@@ -101,15 +98,7 @@ export default function SchoolDetailsHero() {
             </div>
 
             {/* Quick facts */}
-            <div className="grid grid-cols-3 gap-4 mt-2 max-w-xl">
-              {program.qualificationLevels?.map((q, idx) => (
-                <div key={idx} className="bg-white/6 p-3 rounded-lg text-center">
-                  <div className="text-2xl font-bold">{q.duration}</div>
-                  <div className="text-xs text-white/80">{q.level}</div>
-                  <div className="text-xs text-white/70">{q.title}</div>
-                </div>
-              ))}
-            </div>
+           
           </motion.div>
 
           {/* Right: Scrollable program list */}
@@ -119,21 +108,7 @@ export default function SchoolDetailsHero() {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center"
           >
-            <div className="w-full max-w-md bg-white/6 rounded-2xl p-4 backdrop-blur-md shadow-lg flex flex-col">
-              <div
-                className="grid grid-cols-1 gap-3 overflow-y-auto"
-                style={{ maxHeight: "400px" }} // ✅ Fixed height, scrollable if content overflows
-              >
-                {program.programList?.map((p, idx) => (
-                  <FeatureCard
-                    key={idx}
-                    icon={idx % 3 === 0 ? <FaPalette /> : idx % 3 === 1 ? <FaCut /> : <FaShoppingBag />}
-                    title={p.program}
-                    desc={`${p.level} — ${p.duration}`}
-                  />
-                ))}
-              </div>
-            </div>
+            
           </motion.div>
         </div>
       </div>

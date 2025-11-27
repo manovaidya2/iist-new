@@ -35,6 +35,8 @@ const Sidebar = () => {
           name: "School Program",
           icon: <FaCalendarAlt />,
           submenu: [
+            
+            {name : "School Program List", icon: <FaBook />, path: "/school-program" },
               { name: "Admission form data", icon: <FaBook />, path: "/admisson-form" },
         { name: "Examination form data", icon: <FaBook />, path: "/examinationformdata" },
         { name: "Declaration form data", icon: <FaBook />, path: "/declaration" },

@@ -4,20 +4,27 @@ import axiosInstance from "../api/axiosInstance";
 import { FaCertificate, FaListAlt, FaClock, FaGraduationCap } from "react-icons/fa";
 
 export default function QualificationPrograms() {
-  const { id } = useParams(); // 👈 Get program ID from URL
+  const { id } = useParams();
   const [programData, setProgramData] = useState(null);
 
-  // Fetch single student program
+  // Fetch single program
   useEffect(() => {
+    let isMounted = true;
+
     const fetchProgram = async () => {
       try {
         const res = await axiosInstance.get(`/student-programs/${id}`);
-        setProgramData(res.data);
-      } catch (error) {
-        console.error("Error fetching student program:", error);
+        if (isMounted) setProgramData(res.data);
+      } catch (err) {
+        console.error(err);
       }
     };
+
     fetchProgram();
+
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
   if (!programData) {
@@ -29,12 +36,13 @@ export default function QualificationPrograms() {
   return (
     <section className="bg-[#f9fafc] py-10 px-6 md:px-12">
       <div className="max-w-6xl mx-auto space-y-14">
-        {/* Title Section */}
+
+        {/* Title */}
         <h1 className="text-4xl font-extrabold text-center text-[#1a4e92] mb-8">
           {programData.title}
         </h1>
 
-        {/* Qualification Levels Offered */}
+        {/* Qualification Levels */}
         {programData.qualificationLevels?.length > 0 && (
           <div className="bg-white rounded-3xl shadow-md p-8 md:p-10 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
@@ -55,12 +63,9 @@ export default function QualificationPrograms() {
                 </thead>
                 <tbody>
                   {programData.qualificationLevels.map((item, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-gray-100 hover:bg-blue-50 transition"
-                    >
+                    <tr key={index} className="border-b border-gray-100 hover:bg-blue-50 transition">
                       <td className="py-3 px-5 font-medium text-gray-800">{item.level}</td>
-                      <td className="py-3 px-5 text-gray-700 flex items-center gap-2">
+                      <td className="py-3 px-5 flex items-center gap-2 text-gray-700">
                         <FaClock className="text-[#1a4e92]" /> {item.duration}
                       </td>
                       <td className="py-3 px-5 text-gray-700">{item.title}</td>
@@ -72,44 +77,43 @@ export default function QualificationPrograms() {
           </div>
         )}
 
-        {/* Program List */}
-        {programData.programList?.length > 0 && (
-          <div className="bg-white rounded-3xl shadow-md p-8 md:p-10 border border-gray-100">
+        {/* Program Lists */}
+        {programData.programLists?.length > 0 && programData.programLists.map((list, listIndex) => (
+          <div key={listIndex} className="bg-white rounded-3xl shadow-md p-8 md:p-10 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               <FaListAlt className="text-[#1a4e92] text-3xl" />
               <h3 className="text-3xl md:text-4xl font-bold text-[#1a4e92]">
-                Program List
+                {list.listTitle}
               </h3>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-[#1a4e92] text-white">
-                    <th className="py-3 px-5 rounded-l-lg font-semibold">Program Name</th>
-                    <th className="py-3 px-5 font-semibold">Level</th>
-                    <th className="py-3 px-5 rounded-r-lg font-semibold">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {programData.programList.map((program, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-gray-100 hover:bg-blue-50 transition"
-                    >
-                      <td className="py-3 px-5 flex items-center gap-2 text-gray-800 font-medium">
-                        <FaGraduationCap className="text-[#1a4e92]" />
-                        {program.program}
-                      </td>
-                      <td className="py-3 px-5 text-gray-700">{program.level}</td>
-                      <td className="py-3 px-5 text-gray-700">{program.duration}</td>
+            {list.rows?.length > 0 && (
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-[#1a4e92] text-white">
+                      <th className="py-3 px-5 rounded-l-lg font-semibold">Program Name</th>
+                      <th className="py-3 px-5 font-semibold">Level</th>
+                      <th className="py-3 px-5 rounded-r-lg font-semibold">Duration</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {list.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex} className="border-b border-gray-100 hover:bg-blue-50 transition">
+                        <td className="py-3 px-5 flex items-center gap-2 text-gray-800 font-medium">
+                          <FaGraduationCap className="text-[#1a4e92]" />
+                          {row.program}
+                        </td>
+                        <td className="py-3 px-5 text-gray-700">{row.level}</td>
+                        <td className="py-3 px-5 text-gray-700">{row.duration}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
-        )}
+        ))}
       </div>
     </section>
   );

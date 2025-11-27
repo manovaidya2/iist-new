@@ -1,4 +1,3 @@
-// Routes/studentProgramRoutes.js
 import express from "express";
 import {
   createStudentProgram,
@@ -10,7 +9,7 @@ import {
 
 const router = express.Router();
 
-// ➕ Create new student program
+// Create new student program
 router.post(
   "/",
   upload.fields([
@@ -20,13 +19,13 @@ router.post(
   createStudentProgram
 );
 
-// 📄 Get all programs
+// Get all programs
 router.get("/", getAllStudentPrograms);
 
-// 📄 Get single program
+// Get single program
 router.get("/:id", getStudentProgramById);
 
-// 🗑️ Delete program
+// Delete program
 router.delete("/:id", deleteStudentProgram);
 
 export default router;

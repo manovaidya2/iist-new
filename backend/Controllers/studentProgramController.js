@@ -1,10 +1,9 @@
-// Controllers/studentProgramController.js
 import StudentProgram from "../Models/studentProgramModel.js";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// 📂 Storage config
+// Multer storage configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const folder = file.mimetype.startsWith("image/")
@@ -20,33 +19,30 @@ const storage = multer.diskStorage({
 
 export const upload = multer({ storage });
 
-// ➕ CREATE
+// Create Student Program
 export const createStudentProgram = async (req, res) => {
   try {
-    const { title, about, industryFields, qualificationLevels, programList } =
-      req.body;
+    const { title, about, industryFields, qualificationLevels, programLists } = req.body;
 
     const newProgram = new StudentProgram({
       image: req.files?.image?.[0]?.filename || "",
-      brochures: req.files?.brochures?.map((f) => f.filename) || [],
+      brochures: req.files?.brochures?.map(f => f.filename) || [],
       title,
       about,
       industryFields: JSON.parse(industryFields || "[]"),
       qualificationLevels: JSON.parse(qualificationLevels || "[]"),
-      programList: JSON.parse(programList || "[]"),
+      programLists: JSON.parse(programLists || "[]"), // ✅ full program lists
     });
 
     await newProgram.save();
-    res
-      .status(201)
-      .json({ message: "✅ Student program saved successfully", data: newProgram });
+    res.status(201).json({ message: "✅ Student program saved successfully", data: newProgram });
   } catch (error) {
-    console.error("❌ Error saving student program:", error);
+    console.error(error);
     res.status(500).json({ message: "Server Error", error });
   }
 };
 
-// 📄 GET ALL
+// Get all programs
 export const getAllStudentPrograms = async (req, res) => {
   try {
     const programs = await StudentProgram.find().sort({ createdAt: -1 });
@@ -56,7 +52,7 @@ export const getAllStudentPrograms = async (req, res) => {
   }
 };
 
-// 📄 GET SINGLE
+// Get single program
 export const getStudentProgramById = async (req, res) => {
   try {
     const program = await StudentProgram.findById(req.params.id);
@@ -67,7 +63,7 @@ export const getStudentProgramById = async (req, res) => {
   }
 };
 
-// 🗑️ DELETE
+// Delete program
 export const deleteStudentProgram = async (req, res) => {
   try {
     const program = await StudentProgram.findByIdAndDelete(req.params.id);

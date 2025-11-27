@@ -78,7 +78,7 @@ export default function FormDownloadComponent() {
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-6">
       <header className="mb-6 text-center sm:text-left">
-        <h1 className="text-2xl sm:text-3xl font-extrabold mb-2">Available Forms</h1>
+        <h1 className="text-2xl sm:text-3xl font-extrabold mb-2">Download Form</h1>
         <p className="text-xs sm:text-sm opacity-80">Tap download to get the PDF.</p>
       </header>
 
