@@ -3,8 +3,8 @@ import axios from "axios";
 // ✅ Axios instance create kar rahe hain
 const axiosInstance = axios.create({
   // baseURL: "http://localhost:5008/api", // apna backend ka base url daalo
-   baseURL:"https://api.iisd.io/api",
-  timeout: 10000, // request timeout (optional)
+  baseURL: "https://api.iisd.io/api",
+  timeout: 0, // 🔥 unlimited timeout
   headers: {
     "Content-Type": "application/json",
   },
