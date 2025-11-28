@@ -33,7 +33,7 @@
           "http://localhost:5173",
           "http://localhost:5174",
           "https://blog-1-rqz1.onrender.com",
-          "https:www.iisd.io",
+          "https://www.iisd.io",
           "https://iisd.io",
           "https://admin.iisd.io",
           "https://api.iisd.io",
