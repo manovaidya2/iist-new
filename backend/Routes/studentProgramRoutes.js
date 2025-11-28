@@ -4,6 +4,7 @@ import {
   getAllStudentPrograms,
   getStudentProgramById,
   deleteStudentProgram,
+  updateStudentProgram,
   upload,
 } from "../Controllers/studentProgramController.js";
 
@@ -27,5 +28,17 @@ router.get("/:id", getStudentProgramById);
 
 // Delete program
 router.delete("/:id", deleteStudentProgram);
+
+// Update program
+router.put(
+  "/:id",
+  upload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "brochures", maxCount: 10 },
+  ]),
+  updateStudentProgram
+);
+
+
 
 export default router;
