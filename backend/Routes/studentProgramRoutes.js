@@ -24,7 +24,7 @@ router.post(
 router.get("/", getAllStudentPrograms);
 
 // Get single program
-router.get("/:id", getStudentProgramById);
+router.get("program/:id", getStudentProgramById);
 
 // Delete program
 router.delete("/:id", deleteStudentProgram);

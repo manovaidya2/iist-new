@@ -42,7 +42,7 @@
         credentials: true,
       })
     );
-app.options("*", cors());
+
     // =======================
     //  Serve Uploads
     // =======================
