@@ -70,11 +70,11 @@ export default function SchoolDetailsHero() {
           >
            
 
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            <h1 className="text-3xl md:text-3xl font-extrabold leading-tight tracking-tight">
               {program.title}
             </h1>
 
-            <p className="text-sm md:text-base max-w-xl text-white/90">{program.about}</p>
+            {/* <p className="text-sm md:text-base max-w-xl text-white/90">{program.about}</p> */}
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <a

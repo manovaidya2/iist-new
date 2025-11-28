@@ -5,7 +5,7 @@ import bg from "../images/hero-banner.jpg";
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat text-white"
+      className="relative bg-cover py-10 bg-center bg-no-repeat text-white"
       style={{
         backgroundImage: `url(${bg})`,
       }}

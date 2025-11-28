@@ -57,10 +57,9 @@ export default function ProgramsSection() {
                 )}
               </div>
 
-  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+<h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
   {program.title}
 </h3>
-
 
               <p className="text-gray-600 text-sm mb-3 leading-relaxed line-clamp-2">
                 {program.about}
