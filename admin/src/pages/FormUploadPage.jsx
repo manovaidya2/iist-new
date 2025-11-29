@@ -125,16 +125,17 @@ const fetchUploadedForms = async () => {
                     <td className="border px-4 py-2">{index + 1}</td>
                     <td className="border px-4 py-2">{form.formName}</td>
                     <td className="border px-4 py-2">{form.pdfFile}</td>
-                    <td className="border px-4 py-2">
-                      <a
-                        href={`${import.meta.env.VITE_API_BASE_URL}/uploads/forms/${form.pdfFile}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        Download
-                      </a>
-                    </td>
+                   <td className="border px-4 py-2">
+  <a
+    href={`https://api.iisd.io/uploads/forms/${form.pdfFile}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:underline"
+  >
+    Download
+  </a>
+</td>
+
                   </tr>
                 ))}
               </tbody>
