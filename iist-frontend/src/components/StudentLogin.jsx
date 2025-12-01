@@ -67,19 +67,27 @@ export default function StudentLogin() {
       {!studentData ? (
         <div className="w-full max-w-5xl bg-white shadow-2xl rounded-3xl border border-gray-100 grid md:grid-cols-2 overflow-hidden">
           {/* ===== LEFT PANEL ===== */}
-          <div className="bg-[#1a4e92] text-white flex flex-col justify-center p-10">
-            <h1 className="text-4xl font-bold mb-4 leading-snug">
-              Online Results Portal
-            </h1>
-            <p className="text-blue-100 mb-6 text-sm">
-              Check your examination results and instantly download your official IISD certificates.
-            </p>
-            <ul className="space-y-2 text-sm text-blue-50">
-              <li>✔ Secure digital verification</li>
-              <li>✔ Instant certificate download</li>
-              <li>✔ Access from any device</li>
-            </ul>
-          </div>
+      {/* ===== LEFT PANEL ===== */}
+<div
+  className="relative text-white flex flex-col justify-center p-10 bg-cover bg-center"
+  style={{
+    backgroundImage:
+      "url('https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80')",
+  }}
+>
+  {/* Blue Overlay */}
+  <div className="absolute inset-0 bg-[#1a4e92]/60 backdrop-blur-[2px]"></div>
+
+  <div className="relative z-10">
+    <h1 className="text-4xl font-bold mb-4 leading-snug">
+      Online Results Portal
+    </h1>
+
+    <p className="text-blue-100 text-sm max-w-sm">
+      Access your academic results securely anytime, anywhere.
+    </p>
+  </div>
+</div>
 
           {/* ===== RIGHT PANEL (FORM) ===== */}
           <div className="p-8 md:p-12 flex flex-col justify-center">

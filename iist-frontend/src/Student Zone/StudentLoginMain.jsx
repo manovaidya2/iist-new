@@ -7,51 +7,69 @@ export default function StudentLoginMain() {
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 bg-white shadow-xl rounded-2xl overflow-hidden">
         
         {/* Left Section */}
-        <div className="p-10 bg-white flex flex-col justify-center space-y-8">
-          <h1 className="text-4xl font-bold text-gray-900">Student Portal</h1>
-          <p className="text-gray-600 text-lg">
-            Access your learning dashboard, submit exam forms, track your progress, and download certificates.
-          </p>
+       {/* Left Section */}
+<div
+  className="relative p-10 bg-cover bg-center flex flex-col justify-center space-y-8 text-white"
+  style={{
+   backgroundImage:
+  "url('https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&w=1400')",
 
-          <ul className="space-y-4">
-            <li className="flex items-center space-x-4">
-              <div className="bg-[#e6f0fa] p-3 rounded-lg text-[#1a4e92]">
-                <FaBook size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Access LMS</h3>
-                <p className="text-gray-500 text-sm">View courses and study materials</p>
-              </div>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-[#e6f0fa] p-3 rounded-lg text-[#1a4e92]">
-                <FaFileAlt size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Exam Forms</h3>
-                <p className="text-gray-500 text-sm">Apply for on-demand or session exams</p>
-              </div>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-[#e6f0fa] p-3 rounded-lg text-[#1a4e92]">
-                <FaAward size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Certificates</h3>
-                <p className="text-gray-500 text-sm">Download your digital certificates</p>
-              </div>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-[#e6f0fa] p-3 rounded-lg text-[#1a4e92]">
-                <FaCalendarAlt size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Track Progress</h3>
-                <p className="text-gray-500 text-sm">Monitor your learning journey</p>
-              </div>
-            </li>
-          </ul>
+
+  }}
+>
+  {/* Blue Overlay */}
+  <div className="absolute inset-0 bg-[#1a4e92]/55"></div>
+
+  <div className="relative z-10">
+    <h1 className="text-4xl font-bold text-white">Student Portal</h1>
+    <p className="text-blue-100 text-lg">
+      Access your learning dashboard, submit exam forms, track your progress, and download certificates.
+    </p>
+
+    <ul className="space-y-4 mt-6">
+      <li className="flex items-center space-x-4">
+        <div className="bg-white/20 p-3 rounded-lg text-white backdrop-blur">
+          <FaBook size={24} />
         </div>
+        <div>
+          <h3 className="font-semibold text-white">Access LMS</h3>
+          <p className="text-blue-100 text-sm">View courses and study materials</p>
+        </div>
+      </li>
+
+      <li className="flex items-center space-x-4">
+        <div className="bg-white/20 p-3 rounded-lg text-white backdrop-blur">
+          <FaFileAlt size={24} />
+        </div>
+        <div>
+          <h3 className="font-semibold text-white">Exam Forms</h3>
+          <p className="text-blue-100 text-sm">Apply for on-demand or session exams</p>
+        </div>
+      </li>
+
+      <li className="flex items-center space-x-4">
+        <div className="bg-white/20 p-3 rounded-lg text-white backdrop-blur">
+          <FaAward size={24} />
+        </div>
+        <div>
+          <h3 className="font-semibold text-white">Certificates</h3>
+          <p className="text-blue-100 text-sm">Download your digital certificates</p>
+        </div>
+      </li>
+
+      <li className="flex items-center space-x-4">
+        <div className="bg-white/20 p-3 rounded-lg text-white backdrop-blur">
+          <FaCalendarAlt size={24} />
+        </div>
+        <div>
+          <h3 className="font-semibold text-white">Track Progress</h3>
+          <p className="text-blue-100 text-sm">Monitor your learning journey</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
 
         {/* Right Section - Login */}
         <div className="p-10 bg-gray-50 flex flex-col justify-center">

@@ -2,11 +2,16 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <section className="bg-[#1a4e92] text-white py-24">
+    <section
+      className="text-white py-24 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920')",
+      }}
+    >
       <div className="container mx-auto px-4 text-center">
-     <h1 className="text-5xl md:text-6xl font-display font-semibold text-foreground mb-6">
-  Schools & Programs
-</h1>
+        <h1 className="text-5xl md:text-6xl font-display font-semibold mb-6">
+          Schools & Programs
+        </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto font-light">
           IISD programs are organized under 10 globally aligned Schools, each offering 

@@ -122,7 +122,7 @@ export default function StudentResult({ studentData }) {
           </div>
 
           {/* Notes */}
-          <div className="text-xs sm:text-sm text-gray-600 space-y-2 bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-inner">
+          {/* <div className="text-xs sm:text-sm text-gray-600 space-y-2 bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-inner">
             <p>
               <strong>Grade System:</strong> A++: 85%+, A+: 75–84%, A: 60–74%, B: 50–59%, 
               C: 40–49%, D: Below 40%.
@@ -147,7 +147,7 @@ export default function StudentResult({ studentData }) {
                 dguniversityofficial@gmail.com
               </a>.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -168,7 +168,7 @@ export default function StudentResult({ studentData }) {
       </div> */}
 
       {/* Result Declaration Schedule */}
-      <div className="mt-10 w-full max-w-4xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 sm:p-8 shadow-sm text-left">
+      {/* <div className="mt-10 w-full max-w-4xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 sm:p-8 shadow-sm text-left">
         <div className="flex items-center gap-2 mb-3">
           <FaCalendarAlt className="text-blue-700 text-xl" />
           <h4 className="text-lg sm:text-xl font-semibold text-blue-800">
@@ -188,7 +188,7 @@ export default function StudentResult({ studentData }) {
             results@iisdglobal.org
           </a>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
