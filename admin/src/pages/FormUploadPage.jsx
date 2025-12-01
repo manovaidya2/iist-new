@@ -1,91 +1,99 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../api/axiosInstance";
 
-const formList = [
-  "Student Admission Form",
-  "Exam Form",
-  "Self Declaration",
-  "Certificate Reissue Form",
-  "Internship Form",
-  "Instruction Form",
-];
-
 export default function FormUploadPage() {
-  const [selectedForm, setSelectedForm] = useState("");
+  const [formName, setFormName] = useState("");
   const [pdf, setPdf] = useState(null);
   const [message, setMessage] = useState("");
   const [uploadedForms, setUploadedForms] = useState([]);
+  const [editingId, setEditingId] = useState(null);
 
-  // ✅ Fetch uploaded forms on page load
-const fetchUploadedForms = async () => {
-  try {
-    const res = await axiosInstance.get("/forms");
-    const forms = res.data.data || [];
-
-    // Sort by createdAt ascending → oldest first
-    forms.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-
-    setUploadedForms(forms);
-  } catch (err) {
-    console.error("Error fetching uploaded forms:", err);
-  }
-};
+  // Fetch uploaded forms
+  const fetchUploadedForms = async () => {
+    try {
+      const res = await axiosInstance.get("/forms");
+      const forms = res.data.data || [];
+      forms.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+      setUploadedForms(forms);
+    } catch (err) {
+      console.error("Error fetching uploaded forms:", err);
+    }
+  };
 
   useEffect(() => {
     fetchUploadedForms();
   }, []);
 
-  // ✅ Handle Upload
+  // Upload or Update PDF
   const handleUpload = async () => {
-    if (!selectedForm || !pdf) {
-      setMessage("Please select a form and upload PDF.");
-      return;
-    }
+    if (!formName) return setMessage("Please enter form name.");
+    if (!pdf && !editingId) return setMessage("Please upload a PDF file.");
 
     const fd = new FormData();
-    fd.append("formName", selectedForm);
-    fd.append("pdf", pdf);
+    fd.append("formName", formName);
+    if (pdf) fd.append("pdf", pdf);
 
     try {
-      await axiosInstance.post("/forms/upload", fd, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      if (editingId) {
+        // UPDATE
+        await axiosInstance.put(`/forms/${editingId}`, fd, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        setMessage("Updated successfully!");
+      } else {
+        // CREATE
+        await axiosInstance.post("/forms/upload", fd, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        setMessage("Uploaded successfully!");
+      }
 
-      setMessage("Uploaded successfully!");
-      setSelectedForm("");
+      setFormName("");
       setPdf(null);
-
-      // Refresh table after upload
+      setEditingId(null);
       fetchUploadedForms();
     } catch (err) {
       console.log(err);
-      setMessage("Upload failed!");
+      setMessage("Operation failed!");
     }
+  };
+
+  // Delete Form
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this PDF?")) return;
+
+    try {
+      await axiosInstance.delete(`/forms/${id}`);
+      fetchUploadedForms();
+    } catch (err) {
+      console.log(err);
+      alert("Delete failed!");
+    }
+  };
+
+  // Set data for editing
+  const handleEdit = (form) => {
+    setEditingId(form._id);
+    setFormName(form.formName);
+    setPdf(null);
   };
 
   return (
     <div className="p-8 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Form PDF Upload Manager</h1>
+      <h1 className="text-3xl font-bold mb-6">Form PDF Manager</h1>
 
-      {/* Upload Form */}
+      {/* Upload / Edit Form */}
       <div className="mb-6">
-        <div className="mb-4">
-          <label className="block font-semibold mb-2">Select Form</label>
-          <select
-            className="w-full p-3 border rounded bg-gray-100"
-            value={selectedForm}
-            onChange={(e) => setSelectedForm(e.target.value)}
-          >
-            <option value="">-- Choose Form --</option>
-            {formList.map((form, index) => (
-              <option key={index} value={form}>
-                {form}
-              </option>
-            ))}
-          </select>
-        </div>
+        <label className="block font-semibold mb-2">Form Name</label>
+        <input
+          type="text"
+          placeholder="Enter Form Name"
+          className="w-full p-3 border rounded bg-gray-100"
+          value={formName}
+          onChange={(e) => setFormName(e.target.value)}
+        />
 
-        <div className="mb-4">
+        <div className="my-4">
           <label className="block font-semibold mb-2">Upload PDF</label>
           <input
             type="file"
@@ -99,48 +107,72 @@ const fetchUploadedForms = async () => {
           onClick={handleUpload}
           className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
         >
-          Upload PDF
+          {editingId ? "Update PDF" : "Upload PDF"}
         </button>
+
+        {editingId && (
+          <button
+            onClick={() => {
+              setEditingId(null);
+              setFormName("");
+              setPdf(null);
+            }}
+            className="ml-4 bg-gray-400 text-white px-6 py-2 rounded"
+          >
+            Cancel Edit
+          </button>
+        )}
 
         {message && <p className="mt-4 font-semibold">{message}</p>}
       </div>
 
       {/* Uploaded Forms Table */}
-      <div className="mt-8">
+      <div>
         <h2 className="text-2xl font-bold mb-4">Uploaded PDFs</h2>
         {uploadedForms.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="min-w-full table-auto border border-gray-300">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="border px-4 py-2">#</th>
-                  <th className="border px-4 py-2">Form Name</th>
-                  <th className="border px-4 py-2">File Name</th>
-                  <th className="border px-4 py-2">Download</th>
-                </tr>
-              </thead>
-              <tbody>
-                {uploadedForms.map((form, index) => (
-                  <tr key={form._id} className="text-center">
-                    <td className="border px-4 py-2">{index + 1}</td>
-                    <td className="border px-4 py-2">{form.formName}</td>
-                    <td className="border px-4 py-2">{form.pdfFile}</td>
-                   <td className="border px-4 py-2">
-  <a
-    href={`https://api.iisd.io/uploads/forms/${form.pdfFile}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-600 hover:underline"
-  >
-    Download
-  </a>
-</td>
+          <table className="min-w-full table-auto border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border px-4 py-2">#</th>
+                <th className="border px-4 py-2">Form Name</th>
+                <th className="border px-4 py-2">File</th>
+                <th className="border px-4 py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uploadedForms.map((form, index) => (
+                <tr key={form._id} className="text-center">
+                  <td className="border px-4 py-2">{index + 1}</td>
+                  <td className="border px-4 py-2">{form.formName}</td>
+                  <td className="border px-4 py-2">{form.pdfFile}</td>
 
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  <td className="border px-4 py-2 space-x-3">
+                    <a
+                      href={`https://api.iisd.io/uploads/forms/${form.pdfFile}`}
+                      target="_blank"
+                      className="text-blue-600 underline"
+                    >
+                      Download
+                    </a>
+
+                    <button
+                      onClick={() => handleEdit(form)}
+                      className="text-yellow-600 font-semibold"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(form._id)}
+                      className="text-red-600 font-semibold"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ) : (
           <p>No forms uploaded yet.</p>
         )}

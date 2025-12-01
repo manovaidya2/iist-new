@@ -9,5 +9,9 @@ router.post("/upload", upload.single("pdf"), uploadPDF);
 
 // GET all forms
 router.get("/", getForms);
+router.put("/:id", upload.single("pdf"), updatePDF);
+router.delete("/:id", deletePDF);
+
+
 
 export default router;
