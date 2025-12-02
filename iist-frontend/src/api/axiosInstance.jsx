@@ -5,7 +5,7 @@
     // baseURL: "http://localhost:5008/api", // apna backend ka base url daalo
     baseURL: "https://api.iisd.io/api",
 
-    timeout: 10000, // request timeout (optional)
+    timeout: 0, // request timeout (optional)
     headers: {
       "Content-Type": "application/json",
     },
