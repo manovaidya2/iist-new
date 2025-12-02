@@ -5,7 +5,8 @@ export default function HeroSection() {
     <section
       className="text-white py-24 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920')",
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1920')",
       }}
     >
       <div className="container mx-auto px-4 text-center">
@@ -17,6 +18,7 @@ export default function HeroSection() {
           IISD programs are organized under 10 globally aligned Schools, each offering 
           structured skill-based qualifications mapped to international competency levels.
         </p>
+
         <div className="mt-10">
           <button className="bg-white text-blue-900 font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition text-lg">
             Explore Programs

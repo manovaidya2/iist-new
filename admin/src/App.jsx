@@ -21,6 +21,7 @@ import PlacementFormsAdmin from "./pages/PlacementFormsAdmin";
 import AdminInternship from "./pages/AdminInternship";
 import MediumAdmin from "./pages/MediumAdmin";
 import FormUploadPage from "./pages/FormUploadPage";
+import ApplyNowList from "./pages/ApplyNowList";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
              <Route path="/internship-form-data" element={<Layout><AdminInternship /></Layout>}/>
              <Route path="/medium-admin" element={<Layout><MediumAdmin /></Layout>} />
              <Route path="/form-upload" element={<Layout><FormUploadPage /></Layout>} />
+             <Route path="/applyformlist" element={<Layout><ApplyNowList /></Layout>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

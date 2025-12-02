@@ -17,6 +17,7 @@
     import internshipRoutes from "./Routes/internshipRoutes.js";
     import mediumRoutes from "./Routes/mediumInstructionroutes.js";
     import formUploadRoutes from "./Routes/formUploadRoutes.js";
+    import applyFormRoutes from "./Routes/applyFormRoutes.js";
 
 
 
@@ -72,6 +73,7 @@
     app.use("/api/internship", internshipRoutes);
     app.use("/api/medium", mediumRoutes);
     app.use("/api/forms", formUploadRoutes);
+    app.use("/api", applyFormRoutes);
 
 
 

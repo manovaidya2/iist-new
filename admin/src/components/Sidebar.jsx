@@ -49,6 +49,7 @@ const Sidebar = () => {
 
        { name: "Placement form data", icon: <FaBook />, path: "/placement-form" },
        { name: "Form PDF Upload", icon: <FaFileAlt />, path: "/form-upload" },
+       { name: "Apply Now form data", icon: <FaFileAlt />, path: "/applyformlist" },
       ],
     },
   ];

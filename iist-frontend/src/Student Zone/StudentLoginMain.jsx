@@ -13,7 +13,7 @@ export default function StudentLoginMain() {
   style={{
    backgroundImage:
   "url('https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&w=1400')",
-
+ 
 
   }}
 >

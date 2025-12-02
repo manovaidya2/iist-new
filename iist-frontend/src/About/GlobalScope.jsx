@@ -40,15 +40,28 @@ export default function GlobalScope() {
         </div>
 
         {/* Why Skills Matter Section */}
-        <div className="bg-[#f6f9fc] rounded-xl p-10 text-center shadow-sm max-w-5xl mx-auto">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Why Skills Matter</h3>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            In today's rapidly evolving job market, practical skills are increasingly valued over traditional degrees.
-            Countries like Germany, Switzerland, and Singapore have proven that structured skill education creates
-            stronger economies, lower unemployment, and higher social mobility. IISD brings this proven model to a
-            global audience through academically validated programs.
-          </p>
-        </div>
+       <div
+  className="rounded-xl p-10 text-center shadow-sm max-w-5xl mx-auto bg-cover bg-center bg-no-repeat relative"
+  style={{
+    backgroundImage:
+      "url('https://images.pexels.com/photos/3184643/pexels-photo-3184643.jpeg')",
+  }}
+>
+  {/* Overlay for better text visibility */}
+  <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-xl"></div>
+
+  <div className="relative z-10 opeacity-0">
+    <h3 className="text-lg font-bold text-gray-900 mb-4">Why Skills Matter</h3>
+    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+      In today's rapidly evolving job market, practical skills are increasingly
+      valued over traditional degrees. Countries like Germany, Switzerland, and
+      Singapore have proven that structured skill education creates stronger
+      economies, lower unemployment, and higher social mobility. IISD brings this
+      proven model to a global audience through academically validated programs.
+    </p>
+  </div>
+</div>
+
       </div>
     </section>
   );
