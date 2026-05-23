@@ -1,6 +1,7 @@
 import React from "react";
 import { Globe2, Users, Award } from "lucide-react";
 import bg from "../images/hero-banner.jpg";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -51,12 +52,14 @@ export default function HeroSection() {
 
         {/* Buttons */}
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button className="bg-[#ffc52d] hover:bg-[#eab718] text-black font-semibold px-5 py-2 rounded-lg shadow transition inline-flex items-center gap-2 text-sm md:text-base">
-            Explore Programs →
-          </button>
-          <button className="bg-white text-gray-900 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition text-sm md:text-base">
+        <Link to="/mentorship-application">
+  <button className="bg-[#ffc52d] hover:bg-[#eab718] text-black font-semibold px-5 py-2 rounded-lg shadow transition inline-flex items-center gap-2 text-sm md:text-base">
+    Apply for Membership →
+  </button>
+</Link>
+          {/* <button className="bg-white text-gray-900 font-semibold px-5 py-2 rounded-lg shadow hover:bg-gray-100 transition text-sm md:text-base">
             Learn More
-          </button>
+          </button> */}
         </div>
 
         {/* Stats Cards */}

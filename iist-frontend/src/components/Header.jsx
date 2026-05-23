@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import logo from "../images/IISD Logo-1.png";
 
 // ⭐ Import Axios Instance
@@ -8,6 +8,9 @@ import axiosInstance from "../api/axiosInstance";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  
+  // Dropdown states
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   // ⭐ Programs from backend
   const [programs, setPrograms] = useState([]);
@@ -45,39 +48,179 @@ export default function Header() {
     }
   };
 
+  // Dropdown data
+  const councilSubmenu = [
+    { name: "International Council", href: "/international-council" },
+    { name: "Schools", href: "/school" },
+    { name: "About", href: "/about-us" },
+  ];
+
+  const membershipSubmenu = [
+    { name: "Membership Overview", href: "/memebership-overview" },
+    { name: "Student & Professional", href: "/school-&-professional" },
+    { name: "Institutional", href: "/institutional-membership" },
+    { name: "Apply for Membership", href: "/mentorship-application" },
+  ];
+
+  const assessmentSubmenu = [
+    { name: "Trade Test Centers", href: "/trade-test-center" },
+    { name: "Trade Testing Process", href: "/trade-testing-process" },
+    { name: "Assessment & Certification", href: "/assessment-certification" },
+    { name: "Book Assessment", href: "/book-assessment" },
+    { name: "Become a Trade Test Center", href: "/trade-test-center-application" },
+  ];
+
+  const frameworkSubmenu = [
+    { name: "International Skill Credits", href: "/international-skill-credits" },
+    { name: "Global Skill Registry", href: "/global-skill-registry" },
+    { name: "Verification Portal", href: "/verification-portal" },
+  ];
+
+  // Top bar links for mobile
+  const topBarLinks = [
+    { name: "Student Login", href: "/student-login" },
+    { name: "Centre Login", href: "/center-login" },
+    { name: "Results", href: "/results" },
+    { name: "Franchisee", href: "/franchise" },
+  ];
+
   return (
     <>
       {/* ================= HEADER ================= */}
       <header className="bg-[#f7f9fc] shadow-sm sticky top-0 z-50">
+        {/* TOP BAR - Desktop only (hidden on mobile) */}
+        <div className="hidden md:block bg-[#0b2b4f] text-white text-sm py-2 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto flex justify-end items-center gap-6">
+            <a href="/student-login" className="hover:text-blue-300 transition">Student Login</a>
+            <span className="text-gray-500">|</span>
+            <a href="/center-login" className="hover:text-blue-300 transition">Centre Login</a>
+            <span className="text-gray-500">|</span>
+            <a href="/results" className="hover:text-blue-300 transition">Results</a>
+            <span className="text-gray-500">|</span>
+            <a href="/franchise" className="hover:text-blue-300 transition">Franchisee</a>
+          </div>
+        </div>
+
+        {/* MAIN NAVIGATION */}
         <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-8">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src={logo} alt="IISD Logo" className="w-50 h-15 object-contain" />
+            <img src={logo} alt="IISD Logo" className="w-40 md:w-50 h-12 md:h-15 object-contain" />
           </div>
 
-          {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center gap-6 text-[15px] text-gray-900 font-medium whitespace-nowrap">
-            <a href="/">Home</a>
-            <a href="/about-us">About</a>
-            <a href="/school">Schools</a>
-            <a href="/placement-cell">Placement</a>
-            <a href="/results">Results</a>
-            <a href="/franchise">Franchisee</a>
-            <a href="/student-login">Student Login</a>
-            <a href="/center-login">Centre Login</a>
+          {/* Desktop Menu - Centered */}
+          <nav className="hidden lg:flex items-center justify-center gap-5 text-[15px] text-gray-900 font-medium flex-1 mx-4">
+            <a href="/" className="hover:text-[#0b65d7] transition whitespace-nowrap">Home</a>
 
-            <button className="flex items-center gap-1.5 border border-gray-300 rounded-full px-3 py-1 text-sm">
+            {/* Council Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("council")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#0b65d7] transition whitespace-nowrap">
+                Council <ChevronDown size={14} />
+              </button>
+              <div className={`absolute top-full left-0 mt-2 bg-white shadow-xl rounded-md overflow-hidden min-w-[220px] z-50 transition-all duration-300 origin-top-left ${
+                openDropdown === "council" ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"
+              }`}>
+                {councilSubmenu.map((item, idx) => (
+                  <a 
+                    key={idx} 
+                    href={item.href} 
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#0b65d7] hover:text-white transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Membership Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("membership")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#0b65d7] transition whitespace-nowrap">
+                Membership <ChevronDown size={14} />
+              </button>
+              <div className={`absolute top-full left-0 mt-2 bg-white shadow-xl rounded-md overflow-hidden min-w-[220px] z-50 transition-all duration-300 origin-top-left ${
+                openDropdown === "membership" ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"
+              }`}>
+                {membershipSubmenu.map((item, idx) => (
+                  <a 
+                    key={idx} 
+                    href={item.href} 
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#0b65d7] hover:text-white transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Assessment Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("assessment")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#0b65d7] transition whitespace-nowrap">
+                Assessment <ChevronDown size={14} />
+              </button>
+              <div className={`absolute top-full left-0 mt-2 bg-white shadow-xl rounded-md overflow-hidden min-w-[240px] z-50 transition-all duration-300 origin-top-left ${
+                openDropdown === "assessment" ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"
+              }`}>
+                {assessmentSubmenu.map((item, idx) => (
+                  <a 
+                    key={idx} 
+                    href={item.href} 
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#0b65d7] hover:text-white transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Framework Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("framework")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#0b65d7] transition whitespace-nowrap">
+                Framework <ChevronDown size={14} />
+              </button>
+              <div className={`absolute top-full left-0 mt-2 bg-white shadow-xl rounded-md overflow-hidden min-w-[220px] z-50 transition-all duration-300 origin-top-left ${
+                openDropdown === "framework" ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"
+              }`}>
+                {frameworkSubmenu.map((item, idx) => (
+                  <a 
+                    key={idx} 
+                    href={item.href} 
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#0b65d7] hover:text-white transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </nav>
+
+          {/* Right side buttons - EN and Apply Now */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button className="flex items-center gap-1.5 border border-gray-300 rounded-full px-3 py-1 text-sm hover:bg-gray-100 transition whitespace-nowrap">
               <Globe size={15} /> EN
             </button>
-
-            {/* Apply Now */}
             <button
               onClick={() => setShowForm(true)}
-              className="bg-[#0b65d7] hover:bg-[#0955b6] text-white px-4 py-1.5 rounded-lg font-semibold transition text-sm"
+              className="bg-[#0b65d7] hover:bg-[#0955b6] text-white px-4 py-1.5 rounded-lg font-semibold transition text-sm whitespace-nowrap"
             >
               Apply Now
             </button>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
@@ -87,7 +230,7 @@ export default function Header() {
 
         {/* ================= MOBILE MENU ================= */}
         <div
-          className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -98,23 +241,117 @@ export default function Header() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-4 p-5 text-gray-800 text-base">
-            <a href="/">Home</a>
-            <a href="/about-us">About</a>
-            <a href="/school">Schools</a>
-            <a href="/placement-cell">Placement</a>
-            <a href="/results">Results</a>
-            <a href="/franchise">Franchisee</a>
-            <a href="/student-login">Student Login</a>
-            <a href="/center-login">Centre Login</a>
+          <nav className="flex flex-col gap-3 p-5 text-gray-800 text-base overflow-y-auto max-h-full">
+            {/* Top Bar Links - Now inside mobile menu */}
+            <div className="bg-[#0b2b4f] -mx-5 -mt-5 px-5 py-4 mb-3">
+              <div className="flex flex-col gap-3">
+                {topBarLinks.map((link, idx) => (
+                  <a 
+                    key={idx} 
+                    href={link.href} 
+                    onClick={() => setIsOpen(false)} 
+                    className="text-white text-sm hover:text-blue-300 transition py-1"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
 
-            <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 w-max">
+            <a href="/" onClick={() => setIsOpen(false)} className="py-2 hover:text-[#0b65d7] transition">Home</a>
+            
+            {/* Council Mobile Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === "council_mobile" ? null : "council_mobile")}
+                className="flex items-center justify-between w-full text-left py-2"
+              >
+                <span className="hover:text-[#0b65d7] transition">Council</span>
+                <ChevronDown size={16} className={`transform transition-transform ${openDropdown === "council_mobile" ? "rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "council_mobile" && (
+                <div className="ml-4 mt-2 flex flex-col gap-2 border-l-2 border-[#0b65d7] pl-3">
+                  {councilSubmenu.map((item, idx) => (
+                    <a key={idx} href={item.href} onClick={() => setIsOpen(false)} className="py-1 text-sm hover:text-[#0b65d7]">
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Membership Mobile Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === "membership_mobile" ? null : "membership_mobile")}
+                className="flex items-center justify-between w-full text-left py-2"
+              >
+                <span className="hover:text-[#0b65d7] transition">Membership</span>
+                <ChevronDown size={16} className={`transform transition-transform ${openDropdown === "membership_mobile" ? "rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "membership_mobile" && (
+                <div className="ml-4 mt-2 flex flex-col gap-2 border-l-2 border-[#0b65d7] pl-3">
+                  {membershipSubmenu.map((item, idx) => (
+                    <a key={idx} href={item.href} onClick={() => setIsOpen(false)} className="py-1 text-sm hover:text-[#0b65d7]">
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Assessment Mobile Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === "assessment_mobile" ? null : "assessment_mobile")}
+                className="flex items-center justify-between w-full text-left py-2"
+              >
+                <span className="hover:text-[#0b65d7] transition">Assessment</span>
+                <ChevronDown size={16} className={`transform transition-transform ${openDropdown === "assessment_mobile" ? "rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "assessment_mobile" && (
+                <div className="ml-4 mt-2 flex flex-col gap-2 border-l-2 border-[#0b65d7] pl-3">
+                  {assessmentSubmenu.map((item, idx) => (
+                    <a key={idx} href={item.href} onClick={() => setIsOpen(false)} className="py-1 text-sm hover:text-[#0b65d7]">
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Framework Mobile Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === "framework_mobile" ? null : "framework_mobile")}
+                className="flex items-center justify-between w-full text-left py-2"
+              >
+                <span className="hover:text-[#0b65d7] transition">Framework</span>
+                <ChevronDown size={16} className={`transform transition-transform ${openDropdown === "framework_mobile" ? "rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "framework_mobile" && (
+                <div className="ml-4 mt-2 flex flex-col gap-2 border-l-2 border-[#0b65d7] pl-3">
+                  {frameworkSubmenu.map((item, idx) => (
+                    <a key={idx} href={item.href} onClick={() => setIsOpen(false)} className="py-1 text-sm hover:text-[#0b65d7]">
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <a href="/placement-cell" onClick={() => setIsOpen(false)} className="py-2 hover:text-[#0b65d7] transition">Placement</a>
+
+            <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-2 w-max mt-2">
               <Globe size={16} /> EN
             </div>
 
             <button
-              onClick={() => setShowForm(true)}
-              className="bg-[#0b65d7] hover:bg-[#0955b6] text-white px-5 py-2 rounded-lg font-semibold transition"
+              onClick={() => {
+                setShowForm(true);
+                setIsOpen(false);
+              }}
+              className="bg-[#0b65d7] hover:bg-[#0955b6] text-white px-5 py-2.5 rounded-lg font-semibold transition mt-2"
             >
               Apply Now
             </button>
@@ -124,7 +361,7 @@ export default function Header() {
         {/* Mobile Overlay */}
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-black/40 z-40 lg:hidden"
             onClick={() => setIsOpen(false)}
           ></div>
         )}
