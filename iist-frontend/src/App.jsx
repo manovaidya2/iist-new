@@ -36,7 +36,7 @@ import IISDInternshipForm from "./school/IISDInternshipForm";
 import MediumofInstruction from "./school/MediumofInstruction";
 import FormDownloadComponent from "./school/FormDownloadComponent";
 import ScrollToTop from "./components/ScrollToTop"; // ✅ IMPORT THIS
-import Internationalcouncil from "./pages/internationalcouncil";
+import Internationalcouncil from "./pages/Internationalcouncil";
 import MembershipOverview from "./membership/membership-overview/MembershipOverview";
 import MembershipPage from "./membership/Student&Professional/MembershipPage";
 import InstitutionalMembershipPage from "./membership/InstitutionalMembership/InstitutionalMembershipPage";
