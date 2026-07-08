@@ -91,7 +91,7 @@ export default function Footer() {
           <MapPin className="text-yellow-400 w-5 h-5 mt-1" />
           <div>
             <h5 className="font-semibold text-white">Location</h5>
-            <p>Global Headquarters</p>
+            <p>Dubai, UAE</p>
           </div>
         </div>
       </div>
